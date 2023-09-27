@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>web socket</title>
+</head>
+<body>
+    <h1 id="home">Home Hey</h1>
+
+
+    <script>
+        var x = new WebSocket('ws://localhost:8000/ws/some_url/');
+
+        x.onmessage = function(event){
+
+            var data = JSON.parse(event.data);
+            console.log(data);
+            var home = document.querySelector('#home');
+            home.innerText = data.message;
+            
+        }
+    </script>
+</body>
+</html>
